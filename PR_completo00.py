@@ -25,6 +25,7 @@ def partida():
             return(point_computer)
         else:
             print("Sobrou", n)
+            
     if not cond_player:
         while cond:
                 tirar = usuario_escolhe_jogada(n, m)
