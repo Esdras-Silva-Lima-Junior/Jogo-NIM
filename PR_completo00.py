@@ -109,7 +109,7 @@ def inicio():
             partida()
             cond = False
         else:
-            if mode == "2":
+            if mode == 2:
                 print("Voce escolheu um campeonato!")
                 
                 print("**** Rodada 1 ****")
