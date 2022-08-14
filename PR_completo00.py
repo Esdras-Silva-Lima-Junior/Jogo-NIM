@@ -74,23 +74,24 @@ def partida():
 def usuario_escolhe_jogada(n, m):
     while n != 0:
         tirar = int(input("Quantas peças você vai tirar? "))
-        if tirar > n or tirar <= 0:
+        if tirar > n or tirar > m or tirar <= 0:
             print("Oops! Jogada inválida! Tente de novo.")
         else:
             return(tirar)
 
 def computador_escolhe_jogada(n, m):
-    tirar = n % (m + 1)
-    if n >= m:
-        tirar = m
-        return(tirar)
-    else:
-        if tirar == 0:
-            return(m)
+    jogada = m
+    cond = True
+    
+    while jogada != 0 and cond:
+        if ((n - jogada) % (m + 1) == 0):
+            cond = False
+            return(jogada)
         else:
-            return(m)
-
-
+            jogada = jogada - 1
+    if jogada == 0:
+        return(m)
+    
 def inicio():
     print("Bem-vindo ao jogo do NIM! Escolha: ")
     print("")
@@ -101,15 +102,15 @@ def inicio():
     while cond:
         print("1- para jogar uma partida isolada")
         print("2- para jogar um campeonato")
-        mode = input()
+        mode = input("")
         print("")
         
-        if mode == 1:
+        if mode == "1":
             print("Voce escolheu uma partida isolada! ")
             partida()
             cond = False
         else:
-            if mode == 2:
+            if mode == "2":
                 print("Voce escolheu um campeonato!")
                 
                 print("**** Rodada 1 ****")
